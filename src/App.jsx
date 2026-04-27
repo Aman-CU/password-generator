@@ -25,10 +25,10 @@ function App() {
     passwordGenerator();
   }, [length, numberAllowed, characters]);
 
-  function copyToClipboard() {
+  const copyToClipboard = useCallback(() => {
     passwordRef.current.select();
     window.navigator.clipboard.writeText(password);
-  }
+  }, [password]);
 
   return (
     <>
